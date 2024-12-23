@@ -23,7 +23,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - "8001:8000"
+      - "8000:8000"
     environment:
       - DEBUG=1
       - DATABASE_URL=postgresql://postgres:123@db:5432/rt_chat_database
