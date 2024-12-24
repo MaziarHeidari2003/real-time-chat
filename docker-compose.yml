@@ -15,7 +15,7 @@ services:
   redis:
     image: redis:alpine
     ports:
-      - "6379:6379" 
+      - "6379:6379"
 
   wb:
     build: .
@@ -30,12 +30,21 @@ services:
       - REDIS_URL=redis://redis:6379/0
       - CHANNEL_LAYERS_REDIS_URL=redis://redis:6379/1
       - SECRET_KEY=iamthedanger
-
     depends_on:
       - db
       - redis
 
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./static:/static
+      - ./certs:/etc/nginx/certs
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - wb
+
 volumes:
   postgres_data:
-
-
