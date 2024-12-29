@@ -56,7 +56,8 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: 9011  # Ensure this matches your SSH configuration
           script: |
-            cd /path/to/your/project
+            cd /var/
+            cd ..
             git pull origin main
             docker-compose down
             docker-compose up -d --build
