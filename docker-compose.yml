@@ -34,14 +34,6 @@ services:
       - db
       - redis
 
-  nginx:
-    image: nginx:latest
-    volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
-    ports:
-      - "80:80"
-    depends_on:
-      - wb
-
+ 
 volumes:
   postgres_data:
