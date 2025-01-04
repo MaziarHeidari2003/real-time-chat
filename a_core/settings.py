@@ -29,11 +29,11 @@ SECRET_KEY = "django-insecure-rj#-z^kx3j+1ay397otg6j8m_8#v^$^$jys6&41vy^&6le)ezc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']
-
-CSRF_TRUSTED_ORIGINS = [ 'https://*' ]
-
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'maziar-temp-project.ir']
+CSRF_TRUSTED_ORIGINS = [
+    "https://maziar-temp-project.ir",  # Your actual domain
+    "https://www.maziar-temp-project.ir",  # Add variations with 'www.' if needed
+]
 
 
 # Application definition
