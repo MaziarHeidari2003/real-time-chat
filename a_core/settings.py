@@ -29,7 +29,7 @@ SECRET_KEY = "django-insecure-rj#-z^kx3j+1ay397otg6j8m_8#v^$^$jys6&41vy^&6le)ezc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'maziar-temp-project.ir']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'maziar-temp-project.ir','*']
 CSRF_TRUSTED_ORIGINS = [
     "https://maziar-temp-project.ir",  # Your actual domain
     "https://www.maziar-temp-project.ir",  # Add variations with 'www.' if needed
@@ -112,30 +112,30 @@ CHANNEL_LAYERS = {
     },
 }
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': 'DEBUG' if os.getenv('DEBUG') == '1' else 'INFO',
-        },
-        'django.channels': {  # For Channels logs
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        },
-    },
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['console'],
+#             'level': 'DEBUG' if os.getenv('DEBUG') == '1' else 'INFO',
+#         },
+#         'django.channels': {  # For Channels logs
+#             'handlers': ['console'],
+#             'level': 'DEBUG',
+#         },
+#     },
+# }
 
-LOGGING['loggers']['channels'] = {
-    'handlers': ['console'],
-    'level': 'DEBUG',
-}
+# LOGGING['loggers']['channels'] = {
+#     'handlers': ['console'],
+#     'level': 'DEBUG',
+# }
 
 
 
