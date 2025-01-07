@@ -29,7 +29,7 @@ services:
       - DATABASE_URL=postgresql://postgres:123@db:5432/rt_chat_database
       - REDIS_URL=redis://redis:6379/0
       - CHANNEL_LAYERS_REDIS_URL=redis://redis:6379/1
-      - SECRET_KEY="django-insecure-rj#-z^kx3j+1ay397otg6j8m_8#v^$^$jys6&41vy^&6le)ezc"
+      - SECRET_KEY=django-insecure-rj#-z^kx3j+1ay397otg6j8m_8#v^$^$jys6&41vy^&6le)ezc
     depends_on:
       - db
       - redis
