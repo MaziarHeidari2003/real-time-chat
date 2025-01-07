@@ -9,3 +9,9 @@ class ChatMessageCreateForm(ModelForm):
         widgets = {
             'body':forms.TextInput(attrs={'placeholder':'Add message','class':'p-4 text-black', 'maxlength':'300','autofocus':True})
         }
+
+class NewGroupForm(ModelForm):
+    class Meta:
+        model = ChatGroup  # Replace with your actual model name
+        fields = ['group_name']  # Replace with actual fields
+        

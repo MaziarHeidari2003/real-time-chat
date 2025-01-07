@@ -7,6 +7,9 @@ class ChatGroup(models.Model):
     users_online = models.ManyToManyField(User,related_name='online_in_groups',blank=True)
     members = models.ManyToManyField(User,related_name='chat_groups',blank=True)
     is_private = models.BooleanField(default=False)
+    chatgroup_name = models.CharField(max_length=120,null=True,blank=True)
+    admin = models.ForeignKey(User,related_name='chatgroups',blank=True,null=True,on_delete=models.SET_NULL)
+    
 
     
     def __str__(self):

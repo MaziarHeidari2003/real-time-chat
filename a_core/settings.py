@@ -158,7 +158,7 @@ import os
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgresql://postgres:123@db:5432/rt_chat_database')
+    'default': dj_database_url.config(default='postgresql://postgres:maziare11223344@db:5432/rt_chat_database')
 }
 
 

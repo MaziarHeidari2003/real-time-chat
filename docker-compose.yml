@@ -6,16 +6,16 @@ services:
     environment:
       POSTGRES_DB: rt_chat_database
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123
+      POSTGRES_PASSWORD: maziare11223344
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
+    expose:
+      - "5432"
 
   redis:
     image: redis:alpine
-    ports:
-      - "6379:6379"
+    expose:
+      - "6379"
 
   wb:
     build: .
@@ -29,7 +29,7 @@ services:
       - DATABASE_URL=postgresql://postgres:123@db:5432/rt_chat_database
       - REDIS_URL=redis://redis:6379/0
       - CHANNEL_LAYERS_REDIS_URL=redis://redis:6379/1
-      - SECRET_KEY=iamthedanger
+      - SECRET_KEY="django-insecure-rj#-z^kx3j+1ay397otg6j8m_8#v^$^$jys6&41vy^&6le)ezc"
     depends_on:
       - db
       - redis

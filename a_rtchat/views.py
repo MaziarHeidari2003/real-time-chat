@@ -1,7 +1,7 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from django.contrib.auth.decorators import login_required
 from .models import *
-from .forms import ChatMessageCreateForm
+from .forms import ChatMessageCreateForm,NewGroupForm
 from django.http import Http404
 
 @login_required
@@ -39,8 +39,22 @@ def chat_view(request,chatroom_name='public-chat'):
         'other_user':other_user
     })
 
+@login_required
+def create_groupchat(request):
+    form = NewGroupForm()
+    if request.method == 'POST':
+        form = NewGroupForm(request.POST)
+        if form.is_valid():
+            new_chatgroup = form.save(commit=False)
+            new_chatgroup.admin = request.user
+            new_chatgroup.save()
+            new_chatgroup.members.add(request.user)
 
+    return render(request,'create_chatgroup.html',{
+        'form':form
+    })
 
+@login_required
 def get_or_create_chatroom(request,username):
     if request.user.username == username:
         return redirect('home')
